@@ -21,20 +21,20 @@
     <link rel="stylesheet" href="css/widget(1).css" type="text/css" media="all">
     <link rel="stylesheet" href="css/footer.css" type="text/css" media="all">
     <!-- JS -->
-    <script src="../static/표절검사의 기준! 카피킬러_files/f(5).txt"></script><script src="../static/표절검사의 기준! 카피킬러_files/ca-pub-8197202289952581.js.다운로드"></script><script async="" src="./표절검사의 기준! 카피킬러_files/gtm.js.다운로드"></script><script async="" src="./표절검사의 기준! 카피킬러_files/analytics.js.다운로드"></script><script type="text/javascript" src="./표절검사의 기준! 카피킬러_files/jquery.js.다운로드"></script>
-    <script type="text/javascript" src="js/x.js.다운로드"></script>
-    <script type="text/javascript" src="js/common.js.다운로드"></script>
-    <script type="text/javascript" src="js/js_app.js.다운로드"></script>
-    <script type="text/javascript" src="js/xml_handler.js.다운로드"></script>
-    <script type="text/javascript" src="js/xml_js_filter.js.다운로드"></script>
-    <script type="text/javascript" src="js/lite_welcome.js.다운로드"></script>
-    <script type="text/javascript" src="js/tab.js.다운로드"></script>
-    <script type="text/javascript" src="js/google-analytics.js.다운로드"></script>
-    <script type="text/javascript" src="js/copykiller_common.js.다운로드"></script>
-    <script type="text/javascript" src="js/copykiller.js.다운로드"></script>
-    <script type="text/javascript" src="js/login.js.다운로드"></script>
-    <script type="text/javascript" src="js/content_widget.js.다운로드"></script>
-    <script type="text/javascript" src="js/pop_up.js.다운로드"></script>
+    <script src="표절검사의 기준! 카피킬러_files/f(5).txt"></script><script src="js/ca-pub-8197202289952581.js"></script><script async="" src="js/gtm.js"></script><script async="" src="js/analytics.js"></script><script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/x.js"></script>
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/js_app.js"></script>
+    <script type="text/javascript" src="js/xml_handler.js"></script>
+    <script type="text/javascript" src="js/xml_js_filter.js"></script>
+    <script type="text/javascript" src="js/lite_welcome.js"></script>
+    <script type="text/javascript" src="js/tab.js"></script>
+    <script type="text/javascript" src="js/google-analytics.js"></script>
+    <script type="text/javascript" src="js/copykiller_common.js"></script>
+    <script type="text/javascript" src="js/copykiller.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/content_widget.js"></script>
+    <script type="text/javascript" src="js/pop_up.js"></script>
     <!--[if lt IE 9]><script src="/common/js/html5.js"></script><![endif]-->
     <!-- RSS -->
     <!-- ICON -->
@@ -49,7 +49,7 @@
     </script>
     <link rel="stylesheet" href="css/popup.css">
 
-    <script type="text/javascript" src="js/wcslog.js.다운로드"></script>
+    <script type="text/javascript" src="js/wcslog.js></script>
     <script type="text/javascript">
 
         if(!wcs_add) var wcs_add = {};
@@ -255,7 +255,7 @@
                     <a class="label" href="javascript:;" onclick="CopykillerLayout.showAlert(&#39;로그인이 필요한 서비스입니다.&#39;)">검사결과</a>
                 </li>
                 <li class="customer">
-                    <a href="https://www.copykiller.com/notice?category=13951580">고객센터</a>
+                    <a href="https://www.copykiller.com/notice?category= 13951580">고객센터</a>
                     <div class="customer_link">
                         <a href="https://www.copykiller.com/notice?category=13951573">공지사항</a>
                         <a href="https://www.copykiller.com/notice?category=13951580">자주묻는질문</a>
@@ -449,17 +449,17 @@
             <div class="main_contents_top">
                 <div class="contents_box">
                     <span class="contents_tit">글쓰기 도구</span>
-                    <a href="http://citation.sawoo.com/ref/intro" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico06.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>출처생성기</span></a>
-                    <a href="http://citation.sawoo.com/ref/guide/chicago" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico07.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>인용출처표기법</span></a>
-                    <a href="http://spell.sawoo.com/index"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico11.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>맞춤법</span></a>
-                    <a href="http://textcount.sawoo.com/" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico05.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>글자수세기</span></a>
+                    <a href="http://citation.sawoo.com/ref/intro" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico06.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>출처생성기</span></a>
+                    <a href="http://citation.sawoo.com/ref/guide/chicago" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico07.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>인용출처표기법</span></a>
+                    <a href="http://spell.sawoo.com/index"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico11.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>맞춤법</span></a>
+                    <a href="http://textcount.sawoo.com/" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico05.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>글자수세기</span></a>
                 </div>
                 <div class="contents_box" style="margin-left:105px;">
                     <span class="contents_tit">연구윤리 교육자료</span>
-                    <a href="http://edu.copykiller.com/?page_id=1280" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico08.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>궁금해요</span></a>
-                    <a href="http://edu.copykiller.com/?page_id=3355" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico09.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>연구윤리동향</span></a>
-                    <a href="http://edu.copykiller.com/?page_id=3290" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico10.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>교육자료</span></a>
-                    <a href="http://edu.copykiller.com/?page_id=4384" target="_blank"><div style="background: url(&#39;/modules/page/skins/welcome/lite2/img/ico12.png&#39;) no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>전문가상담</span></a>
+                    <a href="http://edu.copykiller.com/?page_id=1280" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico08.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>궁금해요</span></a>
+                    <a href="http://edu.copykiller.com/?page_id=3355" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico09.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>연구윤리동향</span></a>
+                    <a href="http://edu.copykiller.com/?page_id=3290" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico10.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>교육자료</span></a>
+                    <a href="http://edu.copykiller.com/?page_id=4384" target="_blank"><div style="background: url('https://www.copykiller.com/modules/page/skins/welcome/lite2/img/ico12.png') no-repeat center center;position: absolute;width: 60px;height: 100%"></div><span>전문가상담</span></a>
                 </div>
             </div>
             <div class="main_contents_mid">
@@ -492,7 +492,7 @@
         </script>    </div>
 
 
-    <link rel="stylesheet" type="text/css" href="표절검사의 기준! 카피킬러_files/google_ad.css">
+    <link rel="stylesheet" type="text/css" href="css/google_ad.css">
     <div class="reader_ad">
         <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px" data-ad-client="ca-pub-8197202289952581" data-ad-slot="6695274952" data-adsbygoogle-status="done"><ins id="aswift_1_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><ins id="aswift_1_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:728px;background-color:transparent;"><iframe width="728" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_1" name="aswift_1" style="left:0;position:absolute;top:0;border:0px;width:728px;height:90px;" src="표절검사의 기준! 카피킬러_files/saved_resource(2).html"></iframe></ins></ins></ins>
         <script>
@@ -526,7 +526,7 @@
     </script>
 
 
-    <script src="js/jquery.bxslider.min.js.다운로드"></script>
+    <script src="js/jquery.bxslider.min.js"></script>
 
     <div class="banner_wrap">
         <div class="layout taC">
@@ -753,6 +753,6 @@
     </div>
 </div><!-- ETC -->
 <div class="wfsr"></div>
-<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="표절검사의 기준! 카피킬러_files/saved_resource(4).html"></iframe></ins></ins></ins><script type="text/javascript" src="js/a8f89739384e8245d4bc22cf84787393.ko.compiled.js.다운로드"></script>
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:0px;margin:0;padding:0;position:relative;visibility:visible;width:0px;background-color:transparent;"><iframe frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;border:0px;width:0px;height:0px;" src="표절검사의 기준! 카피킬러_files/saved_resource(4).html"></iframe></ins></ins></ins><script type="text/javascript" src="js/a8f89739384e8245d4bc22cf84787393.ko.compiled.js"></script>
 
 <iframe id="google_osd_static_frame_7581899487429" name="google_osd_static_frame" style="display: none; width: 0px; height: 0px;" src="표절검사의 기준! 카피킬러_files/saved_resource(5).html"></iframe></body><iframe id="google_shimpl" style="display: none;" src="표절검사의 기준! 카피킬러_files/saved_resource(6).html"></iframe><iframe id="google_esf" name="google_esf" src="표절검사의 기준! 카피킬러_files/zrt_lookup.html" style="display:none" data-ad-client="ca-pub-8197202289952581"></iframe></html>
