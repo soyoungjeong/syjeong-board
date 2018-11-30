@@ -1,0 +1,33 @@
+.top_navi_wrap {width:1066px;height:76px;position:relative;top:0px;margin: 0 auto;z-index:1;}
+.top_area {width:1024px;height:76px;margin:0 auto;position:relative;background:#fff;}
+.top_area .logo {display:inline-block;vertical-align:top;width:213px;padding-top:16px;height:60px;text-align:right;}
+
+/*이벤트용*/
+.top_navi {display:inline-block;vertical-align:top;margin-left:20px;}
+/*.top_navi {display:inline-block;vertical-align:top;}*/
+
+.top_navi:after {display:block;visibility:hidden;clear:both;content:""}
+
+/*이벤트용*/
+.top_navi li {float:left;padding:0px 18px;}
+/*.top_navi li {float:left;padding:0px 14px;position: relative}*/
+
+.top_navi li:nth-child(5) {position:relative;}
+.top_navi li a {display:block;font-size:16px;font-weight:600;color:#535151;line-height:76px;}
+.top_navi li a:hover {border-bottom:2px solid #61bffd;}
+
+.customer_link {display:none;position:absolute;top:76px;left:-15px;width:118px;border:2px solid #61bffd;padding:10px 0px;background:#fff;}
+.customer_link a {display:block;padding:5px 0px;line-height:20px !important;font-size:14px !important;font-weight:600;color:#444;text-align:center;}
+.customer_link a:hover {color:#61bffd;border-bottom:0px !important;}
+
+.family_site {position:absolute;top:0px;right:0px;width:150px;background:#61bffd}
+.family_site span {display:block;height:76px;line-height:76px;font-size:13px;font-weight:600;color:#fff;background:url('/layouts/copykiller_lite/img/w_arrow.png') no-repeat 90% center;cursor:pointer;text-align:left;padding-left:20px;}
+.family_site .faimly_link {display:none;width:80%;margin:0px auto;border-top:1px solid #87cefd;padding:10px 0px;}
+.family_site .faimly_link:after {display:block;visibility:hidden;clear:both;content:""}
+.family_site .faimly_link li {display:block;}
+.family_site .faimly_link li a {display:block;padding:5px 0px;font-size:13px;font-weight:600;color:#fff;}
+
+.layout-top1 {background: #2D3E4F;height: 35px;line-height: 35px;}
+.layout-top1 .top1 {width: 1024px;margin: 0 auto;color: #FFF;text-align: right;	}
+.layout-top1 .top1 a {color: #FFF;	}
+.layout-top1 .top1 a:hover {text-decoration: underline;	}.layout-top1 .top1 span {margin: 0 10px;	}
