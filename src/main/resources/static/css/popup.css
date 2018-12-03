@@ -1,0 +1,139 @@
+.pop_up-content [hidden] {
+    display: none;
+}
+
+.pop_up-content div {
+    background-repeat: no-repeat;
+}
+
+.pop_up-content {
+    /*margin: 0 auto;*/
+    display: none;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    background-color: #fff;
+    /*-webkit-background-clip: padding-box;*/
+    /*background-clip: padding-box;*/
+    /*border-radius: 6px;*/
+    /*outline: 0;*/
+    /*-webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);*/
+    /*box-shadow: 0 3px 9px rgba(0, 0, 0, .5);*/
+}
+
+.pop_up-content .pop_up_close {
+    /*margin: 10px 20px 10px 0;*/
+}
+
+.pop_up-header {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: 1px solid #333;
+    height: 25px;
+    background-color: #fff;
+    z-index: 100;
+    min-height: 16px;
+}
+
+.pop_up-title {
+    margin: 0;
+    line-height: 1.42857143;
+}
+
+.pop_up-body {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    /*border-left: 1px solid #333;*/
+    /*border-right: 1px solid #333;*/
+    background-color: #fff;
+    z-index: 100;
+    position: relative;
+}
+
+.pop_up-footer {
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    /*border: 1px solid #333;*/
+    height: 20px;
+    background-color: #333;
+    font-size: 14px;
+    color: #fff;
+    z-index: 100;
+    text-align: right;
+    /*border-top: 1px solid #e5e5e5;*/
+}
+
+.pop_up-footer label {
+    float: left;
+    display: block;
+    padding-left: 15px;
+    text-indent: -15px;
+    margin: 0;
+    font-size: 12px;
+    color: #fff;
+    line-height: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.pop_up-footer input[type="checkbox"] {
+    float: left;
+    margin: 3px 20px;
+    height: 16px;
+    width: 16px;
+}
+
+.pop_up_close {
+    width: 22px;
+    height: 22px;
+    /*margin: 10px 20px 10px 0;*/
+    border: solid #F7F7F7 0;
+    float: right;
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    background:url("img/ico_cloase.png") no-repeat center;
+    background-size: 50% 50%;
+}
+
+.pop_up_close:hover,
+.pop_up_close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.pop_up_btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.pop_up_btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
