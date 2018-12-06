@@ -17,7 +17,7 @@
     <div class="container">
             <div id="signup_box" class="col-md-3">
                 <div class="signup-box well">
-                <form role="signup" class="signup" method="post">
+                <form role="signup" class="signup" method="post" action="/login" th:object="${userform}">
                     <legend>회원가입</legend>
                     <div class="form-group">
                         <label for="email">E-mail</label>
@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-group">
                         <label for="nick">Nickname</label>
-                        <input type="text" class="form-control" id="nick" placeholder="" ><br />
+                        <input type="text" class="form-control" id="nickname" placeholder="" ><br />
                     </div>
                     <div class="form-group">
                         <label for="id">Password</label>

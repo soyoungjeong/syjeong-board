@@ -12,41 +12,30 @@
     </style>
 </head>
 <body>
+
 <div class="container">
+    <form action="/board/write" method="get">
     <table class="table table-hover">
         <thead>
         <tr>
             <th>번호</th>
             <th>제목</th>
             <th>작성자</th>
-            <th style="width:10%">작성일</th>
+            <th style="width:20%">작성일</th>
         </tr>
         </thead>
-        <tbody>
+            <#list result as item>
             <tr>
                 <td>1</td>
-                <td>안녕하세요</td>
+                <td>${item.title}</td>
                 <td>정소영</td>
-                <td>2018.12.03</td>
+                <td>2018-12-05</td>
             </tr>
-
-            <tr>
-                <td>2</td>
-                <td>안녕하세요</td>
-                <td>정소영</td>
-                <td>2018.12.03</td>
-            </tr>
-
-            <tr>
-                <td>3</td>
-                <td>안녕하세요</td>
-                <td>정소영</td>
-                <td>2018.12.03</td>
-            </tr>
-        </tbody>
+            </#list>
     </table>
 
-    <input type="button" class="btn btn-default pull-right" value="글쓰기">
+        <button type="submit" class="btn btn-default pull-right">글쓰기</button>
+    </form>
 </div>
 
 <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
