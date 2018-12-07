@@ -31,7 +31,7 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-default btn-login-submit btn-block m-t-md" value="log in" />
                 </div>
-                <span class="text-center"><a href="" class="text-sm">회원가입 하러가기</a></span>
+                <span class="text-center"><a href="/signup" class="text-sm">회원가입 하러가기</a></span>
             </form>
         </div>
     </div>

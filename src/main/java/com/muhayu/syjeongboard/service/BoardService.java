@@ -8,4 +8,7 @@ public interface BoardService {
 
     List<Board> boardList();
 
+    int boardInsert(Board board);
+
+    Board boardView(int index);
 }

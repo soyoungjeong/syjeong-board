@@ -9,6 +9,10 @@ import java.util.List;
 public interface BoardMapper {
 
     List<Board> boardList();
+
+    int boardInsert(Board board);
+
+    Board boardView(int index);
 }
 
 

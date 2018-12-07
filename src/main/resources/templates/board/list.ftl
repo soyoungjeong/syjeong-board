@@ -26,10 +26,10 @@
         </thead>
             <#list result as item>
             <tr>
-                <td>1</td>
+                <td>${item.index}</td>
                 <td>${item.title}</td>
                 <td>정소영</td>
-                <td>2018-12-05</td>
+                <td>${item.date}</td>
             </tr>
             </#list>
     </table>

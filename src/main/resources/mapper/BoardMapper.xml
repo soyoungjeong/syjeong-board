@@ -9,4 +9,13 @@
         SELECT * FROM board
     </select>
 
+    <insert id="boardInsert" parameterType="Board">
+        insert into board('title', 'content', 'date')
+        values (#{title}, #{content}, CURRENT_DATE)
+    </insert>
+
+    <select id="boardView" parameterType="int" resultType="Board">
+        select * from board where index = #{index}
+    </select>
+
 </mapper>
