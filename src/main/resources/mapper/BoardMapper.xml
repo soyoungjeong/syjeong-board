@@ -15,7 +15,7 @@
     </insert>
 
     <select id="boardView" parameterType="int" resultType="Board">
-        select * from board where index = #{index}
+        select * from board where "index" = #{index}
     </select>
 
 </mapper>

@@ -9,7 +9,7 @@
     <style>
         table {margin-top:200px;}
         table tr th {text-align: center;}
-        .container{width:700px;}
+        .container{width:600px;}
         input {margin:5px;}
     </style>
 </head>
@@ -23,11 +23,10 @@
         </tr>
         <tr>
             <th class="info" width="100px">작성자</th>
-            <td></td>
+            <td width="200px"></td>
             <th class="info" width="100px">작성일</th>
-            <td calss="date">${detail.date}</td>
+            <td calss="date" width="200px">${detail.date}</td>
         </tr>
-
         <tr>
             <td colspan="4" height="400px">${detail.content}</td>
         </tr>
@@ -35,7 +34,7 @@
     </table>
     <input type="submit" class="btn btn-default pull-right" value="삭제">
     <input type="submit" class="btn btn-default pull-right" value="수정">
-    <input type="submit" class="btn btn-default pull-right" value="목록">
+    <input type="button" class="btn btn-default pull-right" onclick="location.href='/board/list'" value="목록">
     </form>
 </div>
 <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>

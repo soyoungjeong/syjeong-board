@@ -12,7 +12,6 @@
     </style>
 </head>
 <body>
-
 <div class="container">
     <form action="/board/write" method="get">
     <table class="table table-hover">
@@ -25,7 +24,7 @@
         </tr>
         </thead>
             <#list result as item>
-            <tr>
+            <tr onclick="location.href='/board/view/${item.index}'">
                 <td>${item.index}</td>
                 <td>${item.title}</td>
                 <td>정소영</td>

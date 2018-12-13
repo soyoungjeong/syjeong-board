@@ -14,5 +14,11 @@
         values (#{email}, #{nickname}, #{password})
     </insert>
 
+    <select id="userExist" resultType="User">
+        select * from user where email = #{email} and password = #{password}
+    </select>
 
+    <select id="userView" resultType="User">
+        select * from user where email = #{email} and password = #{password}
+    </select>
 </mapper>
