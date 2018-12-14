@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
@@ -21,7 +22,9 @@ public class BoardController {
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model){
 
-        model.addAttribute("result", boardService.boardList());
+        List<Board> boardList = boardService.boardList();
+
+        model.addAttribute("result", boardList);
 
         return "board/list";
     }
@@ -31,13 +34,16 @@ public class BoardController {
         return "board/write";
     }
 
-    @RequestMapping(value = "/writeProc")
+    @RequestMapping(value = "/write-proc")
     public String writeProc(HttpServletRequest request){
 
-        Board board = new Board();
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
 
-        board.setTitle(request.getParameter("title"));
-        board.setContent(request.getParameter("content"));
+
+        Board board = new Board();
+        board.setTitle(title);
+        board.setContent(content);
 
         boardService.boardInsert(board);
 

@@ -5,7 +5,6 @@
     <title>login</title>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.4/dist/css/bootstrap.min.css"/>
-    \
     <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
     <style>
         .container {
@@ -73,7 +72,7 @@
                 $("#password").focus();
                 return;
             }
-            document.login.action = "/loginProc"
+            document.login.action = "/login-proc"
             document.login.submit();
         });
     });

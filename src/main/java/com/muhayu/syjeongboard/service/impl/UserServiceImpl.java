@@ -4,14 +4,11 @@ package com.muhayu.syjeongboard.service.impl;
 import com.muhayu.syjeongboard.mapper.UserMapper;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
+import com.muhayu.syjeongboard.exception.UserException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpSession;
-import java.util.List;
-import java.util.Map;
-
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -19,45 +16,54 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 
-    private final JdbcTemplate jdbcTemplate;
-
-    public UserServiceImpl(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
 
     public int userInsert(User user) {
         return userMapper.userInsert(user);
     }
 
+
     @Override
-    public boolean logincheck(User loguser, HttpSession session) {
-        boolean result = userExist(loguser);
-        if (result) {
-            User user2 = userView(loguser);
-            session.setAttribute("email", user2.getEmail());
-            session.setAttribute("nickname", user2.getNickname());
+    public User procLogin(String email, String password, HttpSession session) throws UserException{
+
+        User user = new User();
+        user.setEmail(email);
+        user.setPassword(password);
+
+        try {
+            selectUser(email);
+
+            checkPassword(user);
+
+            session.setAttribute("userInfo", user);
+
+        } catch (Exception e){
+            System.out.println("아이디 또는 비밀번호가 틀렸습니다.");
+            e.printStackTrace();
+            return null;
         }
-        return result;
+        return user;
+    }
+
+    public void selectUser(String email) throws UserException{
+        User user = userMapper.selectUser(email);
+        if(user==null){
+            throw new UserException("존재하지 않는 아이디 입니다.");
+        }
+    }
+
+
+    public void checkPassword(User user) throws UserException{
+        User loggedUser = userMapper.checkPassword(user);
+        if(loggedUser == null){
+            throw new UserException("비밀번호가 틀렸습니다.");
+        }
 
     }
 
-    public User userView(User user) {
-        return userMapper.userView(user);
-    }
 
-
-    public boolean userExist(User loguser) {
-
-        //Map<String, Object> stringObjectMap = jdbcTemplate.queryForMap(String.format("select * from user where user.email='%s' and user.password='%s'", loguser.getEmail(), loguser.getPassword()));
-        User user1 = userMapper.userExist(loguser);
-        if(user1 != null){
-            return true;
-        }
-
-        else{
-            return false;
-        }
-    }
+// procLogin
+// emailaddress로 사용자 정보가 존재하는지 확인 ??
+// 비밀번호가 일차하는지 확인 ??
+// 세션에 정보를 저장한다
 }
 

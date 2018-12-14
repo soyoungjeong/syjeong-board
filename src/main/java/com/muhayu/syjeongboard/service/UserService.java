@@ -1,17 +1,18 @@
 package com.muhayu.syjeongboard.service;
 
+import com.muhayu.syjeongboard.exception.UserException;
 import com.muhayu.syjeongboard.model.User;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 
 public interface UserService {
 
     int userInsert(User user);
 
-    boolean logincheck(User user, HttpSession session);
+    User procLogin(String email, String password, HttpSession session) throws UserException;
 
-    User userView(User user);
+    void selectUser(String email) throws UserException;
 
-    boolean userExist(User user);
-}
+    void checkPassword(User user) throws UserException;
+
+    }

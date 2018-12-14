@@ -5,20 +5,17 @@
 
 <mapper namespace="com.muhayu.syjeongboard.mapper.UserMapper">
 
-    <select id="userList" resultType="User">
-        SELECT * FROM user
-    </select>
 
     <insert id="userInsert" parameterType="User">
         insert into user('email', 'nickname', 'password')
         values (#{email}, #{nickname}, #{password})
     </insert>
 
-    <select id="userExist" resultType="User">
+    <select id="checkPassword" resultType="User">
         select * from user where email = #{email} and password = #{password}
     </select>
 
-    <select id="userView" resultType="User">
-        select * from user where email = #{email} and password = #{password}
+    <select id="selectUser" resultType="User">
+        select * from user where email = #{email};
     </select>
 </mapper>

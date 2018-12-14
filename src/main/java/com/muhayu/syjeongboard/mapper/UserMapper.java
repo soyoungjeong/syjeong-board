@@ -10,9 +10,9 @@ public interface UserMapper {
 
     int userInsert(User user);
 
-    User userExist(User user);
+    User checkPassword(User user);
 
-    User userView(User user);
+    User selectUser(String email);
 
 
 }

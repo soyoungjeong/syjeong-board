@@ -1,11 +1,11 @@
 package com.muhayu.syjeongboard.controller;
 
+import com.muhayu.syjeongboard.exception.UserException;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,14 +24,18 @@ public class UserController {
         return "signup";
     }
 
-    @RequestMapping(value = "/signupProc")
+    @RequestMapping(value = "/signup-proc")
     public String signupProc(HttpServletRequest request){
 
-        User user = new User();
 
-        user.setEmail(request.getParameter("email"));
-        user.setNickname(request.getParameter("nickname"));
-        user.setPassword(request.getParameter("password"));
+        String email = request.getParameter("email");
+        String nickname = request.getParameter("nickname");
+        String password = request.getParameter("password");
+
+        User user = new User();
+        user.setEmail(email);
+        user.setNickname(nickname);
+        user.setPassword(password);
 
         userService.userInsert(user);
 
@@ -43,21 +47,22 @@ public class UserController {
         return "login";
     }
 
-    @RequestMapping(value = "/loginProc")
-    public String logincheck(HttpServletRequest request, HttpSession session) {
+    @RequestMapping(value = "/login-proc")
+    public String loginProc(HttpServletRequest request, HttpSession session, Model model) {
 
-        User loguser = new User();
-        loguser.setEmail(request.getParameter("email"));
-        loguser.setPassword(request.getParameter("password"));
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
 
-        boolean result = userService.logincheck(loguser, session);
-        if (result == true){
-            return "redirect:/board/list";
+
+        try {
+            User user = userService.procLogin(email, password, session);
+            if(user != null) {
+                return "redirect:/board/list";
+            }
         }
-        else{
-            //에러 메세지 추가.
-            return "redirect:/login";
+        catch (Exception e){
+            e.printStackTrace();
         }
-
+        return "redirect:/login";
     }
 }
