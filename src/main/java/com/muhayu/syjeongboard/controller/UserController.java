@@ -60,13 +60,13 @@ public class UserController {
             return "redirect:/board/list";
         }
         model.addAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
-        return "/login";
+        return "login";
     }
 
     @RequestMapping(value = "/logout")
     public String logout(HttpSession session, Model model){
         userService.logout(session);
         model.addAttribute("msg", "로그아웃 했습니다.");
-        return "/login";
+        return "login";
     }
 }

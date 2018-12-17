@@ -58,6 +58,13 @@
 </div>
 
 <script>
+    var message = '${msg?if_exists}';
+    if(message!=""){
+    alert(message)
+    }
+</script>
+
+<script>
     $(document).ready(function () {
         $("#btnLogin").click(function () {
             var userEmail = $("#email").val();
@@ -77,14 +84,6 @@
         });
     });
 </script>
-
-<script>
-    var message = '${msg}';
-    if(message != null){
-        alert(message);
-    }
-</script>
-
 <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
