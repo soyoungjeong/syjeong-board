@@ -6,16 +6,19 @@
 <mapper namespace="com.muhayu.syjeongboard.mapper.BoardMapper">
 
     <select id="boardList" resultType="Board">
-        SELECT * FROM board
+        SELECT * FROM board where writer = #{writer}
     </select>
 
     <insert id="boardInsert" parameterType="Board">
-        insert into board('title', 'content', 'date')
-        values (#{title}, #{content}, CURRENT_DATE)
+        insert into board('title', 'content', 'date', 'writer')
+        values (#{title}, #{content}, CURRENT_DATE, #{writer})
     </insert>
 
     <select id="boardView" parameterType="int" resultType="Board">
         select * from board where "index" = #{index}
     </select>
 
+    <delete id="boardDelete" parameterType="Board">
+        delete from board where "index" = #{index}
+    </delete>
 </mapper>

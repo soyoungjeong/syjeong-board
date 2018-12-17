@@ -54,15 +54,19 @@ public class UserController {
         String password = request.getParameter("password");
 
 
-        try {
-            User user = userService.procLogin(email, password, session);
-            if(user != null) {
-                return "redirect:/board/list";
-            }
+
+        User user = userService.procLogin(email, password, session);
+        if(user != null) {
+            return "redirect:/board/list";
         }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return "redirect:/login";
+        model.addAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
+        return "/login";
+    }
+
+    @RequestMapping(value = "/logout")
+    public String logout(HttpSession session, Model model){
+        userService.logout(session);
+        model.addAttribute("msg", "로그아웃 했습니다.");
+        return "/login";
     }
 }

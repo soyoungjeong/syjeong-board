@@ -15,8 +15,8 @@ public class BoardServiceImpl implements BoardService {
     BoardMapper boardMapper;
 
     @Override
-    public List<Board> boardList() {
-        return boardMapper.boardList();
+    public List<Board> boardList(String nickName) {
+        return boardMapper.boardList(nickName);
     }
 
     public int boardInsert(Board board) {
@@ -26,6 +26,8 @@ public class BoardServiceImpl implements BoardService {
     public Board boardView(int index) {
         return boardMapper.boardView(index);
     }
+
+    public int boardDelete(int index) { return boardMapper.boardDelete(index); }
 }
 
 

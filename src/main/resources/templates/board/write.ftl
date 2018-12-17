@@ -11,9 +11,9 @@
     </style>
 </head>
 <body>
-
+<#include "../header.ftl">
     <div class="container">
-        <form action="/board/writeProc" method="post">
+        <form action="/board/write-proc" method="post">
             <div class="form-group">
                 <label for="title">제목</label>
                 <input type="text" class="form-control" id="title" name="title">

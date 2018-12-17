@@ -78,6 +78,13 @@
     });
 </script>
 
+<script>
+    var message = '${msg}';
+    if(message != null){
+        alert(message);
+    }
+</script>
+
 <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

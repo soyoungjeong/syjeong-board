@@ -17,7 +17,7 @@
     <div class="container">
             <div id="signup_box" class="col-md-3">
                 <div class="signup-box well">
-                <form role="signup" class="signup" method="post" action="/signupProc">
+                <form role="signup" class="signup" method="post" action="/signup-proc">
                     <legend>회원가입</legend>
                     <div class="form-group">
                         <label for="email">E-mail</label>

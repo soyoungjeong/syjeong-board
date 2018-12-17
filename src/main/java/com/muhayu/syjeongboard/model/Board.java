@@ -6,7 +6,15 @@ public class Board {
     private String content;
     private String date;
     private int index;
+    private String writer;
 
+    public String getWriter() {
+        return writer;
+    }
+
+    public void setWriter(String writer) {
+        this.writer = writer;
+    }
     public int getIndex() { return index; }
 
     public void setIndex(int index) {

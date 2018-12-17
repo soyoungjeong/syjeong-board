@@ -12,7 +12,7 @@
     </insert>
 
     <select id="checkPassword" resultType="User">
-        select * from user where email = #{email} and password = #{password}
+        select email, nickname, password from user where email = #{email} and password = #{password}
     </select>
 
     <select id="selectUser" resultType="User">

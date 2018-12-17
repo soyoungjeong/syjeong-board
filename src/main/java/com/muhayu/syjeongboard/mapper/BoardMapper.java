@@ -8,11 +8,13 @@ import java.util.List;
 @Mapper
 public interface BoardMapper {
 
-    List<Board> boardList();
+    List<Board> boardList(String nickName);
 
     int boardInsert(Board board);
 
     Board boardView(int index);
+
+    int boardDelete(int index);
 }
 
 

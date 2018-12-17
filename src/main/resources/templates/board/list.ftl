@@ -9,11 +9,13 @@
     <style>
         table {margin-top:200px;}
         .container {width:600px;}
+        #write {margin-right:10px;}
     </style>
 </head>
 <body>
+<#include "../header.ftl">
 <div class="container">
-    <form action="/board/write" method="get">
+    <form action="/board/check-delete" method="get">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -24,19 +26,26 @@
         </tr>
         </thead>
             <#list result as item>
-            <tr onclick="location.href='/board/view/${item.index}'">
-                <td>${item.index}</td>
-                <td>${item.title}</td>
-                <td>정소영</td>
+            <tr>
+                <td><input type="checkbox" name="check" value="${item.index}">${item.index}</td>
+                <td onclick="location.href='/board/view/${item.index}'">${item.title}</td>
+                <td>${item.writer}</td>
                 <td>${item.date}</td>
             </tr>
             </#list>
     </table>
-
-        <button type="submit" class="btn btn-default pull-right">글쓰기</button>
+        <input type="submit" id="delete" class="btn btn-default pull-right" value="삭제">
+        <input type="button" id="write" class="btn btn-default pull-right" onclick="location.href='/board/write'" value="글쓰기">
     </form>
 </div>
+<script>
+    $(document).ready(function(){
+        $("#delete").on("click", function() {
+            alert("정말 삭제하시겠습니까?");
+        })
+    })
 
+</script>
 <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
 <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </body>
