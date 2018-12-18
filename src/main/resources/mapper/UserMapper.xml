@@ -11,11 +11,11 @@
         values (#{email}, #{nickname}, #{password})
     </insert>
 
-    <select id="checkPassword" resultType="User">
-        select email, nickname, password from user where email = #{email} and password = #{password}
+    <select id="selectUser" resultType="User">
+        select * from user where email = #{email};
     </select>
 
-    <select id="selectUser" resultType="User">
+    <select id="checkUser" resultType="User">
         select * from user where email = #{email};
     </select>
 </mapper>

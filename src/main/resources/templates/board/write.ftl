@@ -5,7 +5,8 @@
     <meta name="viewport">
     <title>write</title>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.4/dist/css/bootstrap.min.css" />
-
+    <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
     <style>
         .container {width:600px; margin-top:200px;}
     </style>
@@ -25,9 +26,5 @@
             <button type="submit" class="btn btn-default pull-right">작성</button>
         </form>
     </div>
-
-
-<script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

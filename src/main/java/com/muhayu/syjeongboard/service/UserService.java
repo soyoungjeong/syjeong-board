@@ -10,13 +10,15 @@ public interface UserService {
 
     int userInsert(User user);
 
-    User procLogin(String email, String password, HttpSession session);
+    User procLogin(String email, String password, HttpSession session) throws UserException;
 
-    void selectUser(String email) throws UserException;
+    User selectUser(String email);
 
-    User checkPassword(User user) throws UserException;
+    boolean checkPassword(User user);
 
     void logout(HttpSession session);
 
     PasswordEncoder passwordEncoder();
-    }
+
+    void checkUser(String email) throws UserException;
+}

@@ -5,7 +5,8 @@
     <meta name="viewport">
     <title>list</title>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.4/dist/css/bootstrap.min.css" />
-
+    <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
     <style>
         table {margin-top:200px;}
         .container {width:600px;}
@@ -46,7 +47,5 @@
     })
 
 </script>
-<script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

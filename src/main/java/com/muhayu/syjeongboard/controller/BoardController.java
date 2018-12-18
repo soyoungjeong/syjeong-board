@@ -30,13 +30,18 @@ public class BoardController {
             User user = (User) session.getAttribute("user");
             String writer = user.getNickname();
 
+            if(user == null){
+                throw new Exception(" ");
+            }
+
             List<Board> boardList = boardService.boardList(writer);
 
             model.addAttribute("result", boardList);
 
             return "board/list";
         }catch (Exception e){
-            return "redirect:/login";
+            model.addAttribute("msg", "로그인이 필요합니다.");
+            return "/login";
         }
     }
 
@@ -46,17 +51,18 @@ public class BoardController {
     }
 
     @RequestMapping(value = "/write-proc")
-    public String writeProc(HttpServletRequest request, HttpSession session) {
+    public String procWrite(HttpServletRequest request, HttpSession session) {
 
+        User user = (User) session.getAttribute("user");
         String title = request.getParameter("title");
         String content = request.getParameter("content");
-        User user = (User) session.getAttribute("user");
+        String nickname = user.getNickname();
 
 
         Board board = new Board();
         board.setTitle(title);
         board.setContent(content);
-        board.setWriter(user.getNickname());
+        board.setWriter(nickname);
 
         boardService.boardInsert(board);
 
@@ -64,11 +70,21 @@ public class BoardController {
     }
 
     @RequestMapping(value = "/view/{index}")
-    public String view(@PathVariable int index, Model model) {
+    public String view(@PathVariable int index, Model model, HttpSession session) {
 
-        model.addAttribute("detail", boardService.boardView(index));
+        try {
+            User user = (User) session.getAttribute("user");
 
+            if(user == null){
+                throw new Exception(" ");
+            }
 
+            model.addAttribute("detail", boardService.boardView(index));
+
+        }catch (Exception e){
+            model.addAttribute("msg", "로그인이 필요합니다.");
+            return "/login";
+        }
         return "board/view";
     }
 

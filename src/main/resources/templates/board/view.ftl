@@ -5,14 +5,17 @@
     <meta name="viewport">
     <title>view</title>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.4/dist/css/bootstrap.min.css" />
+    <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 
     <style>
         table {margin-top:200px;}
         table tr th {text-align: center;}
         .container{width:600px;}
-        input {margin:5px;}
+        div form input {margin:5px;}
     </style>
 </head>
+
 <body>
 <#include "../header.ftl">
 <div class="container">
@@ -35,7 +38,6 @@
     </table>
         <input type="hidden" name="index" value="${detail.index}">
         <input type="button" id="delete" class="btn btn-default pull-right" onclick="location.href='/board/delete/${detail.index}'" value="삭제">
-        <input type="submit" class="btn btn-default pull-right" value="수정">
         <input type="button" class="btn btn-default pull-right" onclick="location.href='/board/list'" value="목록">
     </form>
     <script>
@@ -44,9 +46,7 @@
                 alert("정말 삭제하시겠습니까?");
             })
         })
-
     </script>
-<script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

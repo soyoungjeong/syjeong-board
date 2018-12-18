@@ -4,6 +4,7 @@ import com.muhayu.syjeongboard.exception.UserException;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signup-proc")
-    public String signupProc(HttpServletRequest request){
-
+    public String procSignup(HttpServletRequest request, Model model){
 
         String email = request.getParameter("email");
         String nickname = request.getParameter("nickname");
@@ -37,9 +37,18 @@ public class UserController {
         user.setNickname(nickname);
         user.setPassword(password);
 
-        userService.userInsert(user);
+        try {
+            userService.checkUser(user.getEmail());
 
-        return "redirect:/login";
+            userService.userInsert(user);
+
+            return "redirect:/login";
+        }
+        catch(UserException e){
+            model.addAttribute("msg", "이미 존재하는 이메일 입니다.");
+            return "/signup";
+        }
+
     }
 
     @RequestMapping(value = "/login")
@@ -54,13 +63,20 @@ public class UserController {
         String password = request.getParameter("password");
 
 
+        try{
+            User user = userService.procLogin(email, password, session);
 
-        User user = userService.procLogin(email, password, session);
-        if(user != null) {
-            return "redirect:/board/list";
+            if(user == null){
+                throw new UserException(" ");
+            }
         }
-        model.addAttribute("msg", "아이디 또는 비밀번호가 틀렸습니다.");
-        return "login";
+        catch (UserException e){
+            model.addAttribute("msg", e.getMessage());
+            return "/login";
+        }
+
+        return "redirect:/board/list";
+
     }
 
     @RequestMapping(value = "/logout")

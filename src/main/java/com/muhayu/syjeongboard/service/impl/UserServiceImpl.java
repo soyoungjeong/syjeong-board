@@ -1,6 +1,5 @@
 package com.muhayu.syjeongboard.service.impl;
 
-
 import com.muhayu.syjeongboard.mapper.UserMapper;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
@@ -21,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
 
     public int userInsert(User user) {
+
         String rawPassword = user.getPassword();
         String encodedPassword = new BCryptPasswordEncoder().encode(rawPassword);
         user.setPassword(encodedPassword);
@@ -30,49 +30,52 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User procLogin(String email, String password, HttpSession session) {
+    public User procLogin(String email, String password, HttpSession session) throws UserException {
 
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
 
         try {
-            selectUser(email);
+            User loggedUser = selectUser(email);
+            if(loggedUser == null){
+                throw new UserException("아이디 또는 비밀번호가 틀렸습니다.");
+            }
 
-            User loggedUser = checkPassword(user);
+            boolean result = checkPassword(user);
+            if (!result) {
+                throw new UserException("아이디 또는 비밀번호가 틀렸습니다.");
+            }
 
             session.setAttribute("user", loggedUser);
 
-        } catch (Exception e) {
-            return null;
-        }
-        return user;
-    }
+            return loggedUser;
 
-    public void selectUser(String email) throws UserException {
-        User user = userMapper.selectUser(email);
-        if (user == null) {
-            throw new UserException("존재하지 않는 아이디 입니다.");
+        } catch (UserException e) {
+            throw e;
         }
     }
 
+    public User selectUser(String email){
+        return userMapper.selectUser(email);
+    }
 
-    public User checkPassword(User user) throws UserException {
-        User loggedUser = userMapper.checkPassword(user);
-        if (loggedUser == null) {
-            throw new UserException("비밀번호가 틀렸습니다.");
-        }
-        return loggedUser;
+    public boolean checkPassword(User user){
+        User loggedUser = userMapper.selectUser(user.getEmail());
+        String encodedPassword = loggedUser.getPassword();
+        return passwordEncoder.matches(user.getPassword(), encodedPassword);
     }
 
     public void logout(HttpSession session){
         session.invalidate();
     }
-// procLogin
-// emailaddress로 사용자 정보가 존재하는지 확인 ??
-// 비밀번호가 일차하는지 확인 ??
-// 세션에 정보를 저장한다
 
+    public void checkUser(String email) throws UserException {
+        User user = userMapper.checkUser(email);
+        if (user != null) {
+            throw new UserException("존재하는 이메일 입니다.");
+        }
+    }
 
     public PasswordEncoder passwordEncoder(){
         return this.passwordEncoder;

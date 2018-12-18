@@ -6,6 +6,7 @@
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.4/dist/css/bootstrap.min.css"/>
     <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
     <style>
         .container {
             margin-top: 200px;
@@ -30,7 +31,6 @@
         }
 
     </style>
-
 </head>
 <body>
 <div class="container">
@@ -63,7 +63,6 @@
     alert(message)
     }
 </script>
-
 <script>
     $(document).ready(function () {
         $("#btnLogin").click(function () {
@@ -84,6 +83,5 @@
         });
     });
 </script>
-<script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
