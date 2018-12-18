@@ -6,16 +6,12 @@
 <mapper namespace="com.muhayu.syjeongboard.mapper.UserMapper">
 
 
-    <insert id="userInsert" parameterType="User">
+    <insert id="insertUser" parameterType="User">
         insert into user('email', 'nickname', 'password')
         values (#{email}, #{nickname}, #{password})
     </insert>
 
     <select id="selectUser" resultType="User">
-        select * from user where email = #{email};
-    </select>
-
-    <select id="checkUser" resultType="User">
         select * from user where email = #{email};
     </select>
 </mapper>

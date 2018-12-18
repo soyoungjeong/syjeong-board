@@ -9,9 +9,8 @@
     <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
 
     <style>
-        table {margin-top:200px;}
         table tr th {text-align: center;}
-        .container{width:600px;}
+        .container{margin-top:200px; width:600px;}
         div form input {margin:5px;}
     </style>
 </head>
@@ -20,6 +19,7 @@
 <#include "../header.ftl">
 <div class="container">
     <form action="" method="post">
+        <h2><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></h2><br/>
     <table class="table">
         <tr>
             <th class="info" width="100px">제목</th>
@@ -38,6 +38,7 @@
     </table>
         <input type="hidden" name="index" value="${detail.index}">
         <input type="button" id="delete" class="btn btn-default pull-right" onclick="location.href='/board/delete/${detail.index}'" value="삭제">
+        <input type="button" id="update" class="btn btn-default pull-right" onclick="location.href='/board/update/${detail.index}'" value="수정">
         <input type="button" class="btn btn-default pull-right" onclick="location.href='/board/list'" value="목록">
     </form>
     <script>
@@ -47,6 +48,5 @@
             })
         })
     </script>
-
 </body>
 </html>

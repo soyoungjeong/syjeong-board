@@ -4,11 +4,11 @@ import com.muhayu.syjeongboard.mapper.UserMapper;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
 import com.muhayu.syjeongboard.exception.UserException;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,13 +19,24 @@ public class UserServiceImpl implements UserService {
     private PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
 
-    public int userInsert(User user) {
+    public int insertUser(User user) throws UserException{
 
-        String rawPassword = user.getPassword();
-        String encodedPassword = new BCryptPasswordEncoder().encode(rawPassword);
-        user.setPassword(encodedPassword);
+        try {
+            String email = user.getEmail();
+            User signupUser = selectUser(email);
+            if (signupUser != null) {
+                throw new UserException("이미 가입한 회원입니다.");
+            }
 
-        return userMapper.userInsert(user);
+            String rawPassword = user.getPassword();
+            String encodedPassword = new BCryptPasswordEncoder().encode(rawPassword);
+            user.setPassword(encodedPassword);
+
+            return userMapper.insertUser(user);
+        }
+        catch (UserException e){
+            throw e;
+        }
     }
 
 
@@ -70,15 +81,5 @@ public class UserServiceImpl implements UserService {
         session.invalidate();
     }
 
-    public void checkUser(String email) throws UserException {
-        User user = userMapper.checkUser(email);
-        if (user != null) {
-            throw new UserException("존재하는 이메일 입니다.");
-        }
-    }
-
-    public PasswordEncoder passwordEncoder(){
-        return this.passwordEncoder;
-    }
 }
 

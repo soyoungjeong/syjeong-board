@@ -28,6 +28,8 @@ public class BoardServiceImpl implements BoardService {
     }
 
     public int boardDelete(int index) { return boardMapper.boardDelete(index); }
+
+    public int boardUpdate(Board board) { return boardMapper.boardUpdate(board); }
 }
 
 

@@ -12,29 +12,37 @@
         .col-md-3 {display:table; width:400px; height:100%; position:relative; left:350px;}
         .signup-box well {display:table-cell; text-align: center;}
         .text-center {position:relative; left:120px;}
+        .btn{width:200px; text-align: center; position :relative; left:30px;}
     </style>
 </head>
 <body>
     <div class="container">
             <div id="signup_box" class="col-md-3">
                 <div class="signup-box well">
-                <form role="signup" name="signup" class="signup" method="post" action="/signup-proc">
+                <form role="signup" name="signup" class="form-horizontal" method="post" action="/signup-proc">
                     <legend>회원가입</legend>
                     <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder=""><br />
+                        <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-envelope"></span></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="email" name="email" placeholder="Email"><br />
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="nick">Nickname</label>
-                        <input type="text" class="form-control" id="nickname" name="nickname" placeholder="" ><br />
+                        <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-user"></span></label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" ><br />
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="id">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"><br />
+                        <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-lock"></span></label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password"><br />
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <input type="button" id="btnSignup" class="btn btn-default btn-signup-submit btn-block m-t-md" value="Sign up" />
+                    <div class="btn">
+                        <input type="button" id="btnSignup" class="btn btn-primary" value="Sign up" />
                     </div>
+                    <br/>
                     <span class="text-center"><a href="/login" class="text-sm">로그인 하러가기</a></span>
                 </form>
                 </div>
@@ -68,7 +76,7 @@
                     $("#password").focus();
                     return;
                 }
-                document.signup.action = "/signup-proc"
+                document.signup.action = "/signup-proc";
                 document.signup.submit();
             });
         });

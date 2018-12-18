@@ -31,7 +31,7 @@ public class BoardController {
             String writer = user.getNickname();
 
             if(user == null){
-                throw new Exception(" ");
+                throw new Exception();
             }
 
             List<Board> boardList = boardService.boardList(writer);
@@ -69,6 +69,31 @@ public class BoardController {
         return "redirect:/board/list";
     }
 
+    @RequestMapping(value = "/update/{index}")
+    public String update(@PathVariable int index, Model model) {
+
+        Board board = boardService.boardView(index);
+        model.addAttribute("detail", board);
+
+        return "board/update";
+    }
+
+    @RequestMapping(value = "/update-proc/{index}")
+    public String prcUpdate(@PathVariable int index, HttpServletRequest request){
+
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+
+        Board board = new Board();
+        board.setTitle(title);
+        board.setContent(content);
+        board.setIndex(index);
+
+        boardService.boardUpdate(board);
+
+        return "redirect:/board/list";
+    }
+
     @RequestMapping(value = "/view/{index}")
     public String view(@PathVariable int index, Model model, HttpSession session) {
 
@@ -76,10 +101,11 @@ public class BoardController {
             User user = (User) session.getAttribute("user");
 
             if(user == null){
-                throw new Exception(" ");
+                throw new Exception();
             }
 
-            model.addAttribute("detail", boardService.boardView(index));
+            Board board = boardService.boardView(index);
+            model.addAttribute("detail", board);
 
         }catch (Exception e){
             model.addAttribute("msg", "로그인이 필요합니다.");
@@ -90,12 +116,13 @@ public class BoardController {
 
     @RequestMapping(value = "/delete/{index}")
     public String delete(@PathVariable int index){
+
         boardService.boardDelete(index);
         return "redirect:/board/list";
     }
 
     @RequestMapping(value = "/check-delete")
-    public String checkDelete(@RequestParam(value = "check") List<Integer> check, HttpSession session){
+    public String checkDelete(@RequestParam(value = "check") List<Integer> check){
 
         for(int index : check) {
             boardService.boardDelete(index);

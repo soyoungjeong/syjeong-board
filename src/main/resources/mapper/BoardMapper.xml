@@ -9,7 +9,7 @@
         SELECT * FROM board where writer = #{writer}
     </select>
 
-    <insert id="insertBoard" parameterType="Board">
+    <insert id="boardInsert" parameterType="Board">
         insert into board('title', 'content', 'date', 'writer')
         values (#{title}, #{content}, CURRENT_DATE, #{writer})
     </insert>
@@ -18,7 +18,11 @@
         select * from board where "index" = #{index}
     </select>
 
-    <delete id="deleteBoard" parameterType="Board">
+    <delete id="boardDelete" parameterType="Board">
         delete from board where "index" = #{index}
     </delete>
+
+    <update id="boardUpdate" parameterType="Board">
+        update board set title = #{title} , content = #{content} where "index" = #{index}
+    </update>
 </mapper>

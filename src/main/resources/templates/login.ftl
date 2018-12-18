@@ -30,27 +30,37 @@
             left: 120px;
         }
 
+        .btn{
+            width:200px;
+            text-align: center;
+            position :relative;
+            left:30px;
+        }
+
     </style>
 </head>
 <body>
 <div class="container">
     <div id="login_box" class="col-md-3">
         <div class="login-box well">
-            <form role="login" class="login" id="user_login" name="login" method="post">
+            <form class="form-horizontal" role="login" name="login" method="post">
                 <legend>로그인</legend>
                 <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder=""><br/>
+                    <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-user"></span></label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email"><br/>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="id">Password</label>
-                    <input type="password" class="form-control" id="password" name="password"
-                           placeholder="Password"><br/>
+                    <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-lock"></span></label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"><br/>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <input type="button" id="btnLogin" class="btn btn-default btn-login-submit btn-block m-t-md"
-                           value="log in"/>
+                <div class="btn">
+                    <input type="button" id="btnLogin" class="btn btn-primary" value="Log in"/>
                 </div>
+                <br/>
                 <span class="text-center"><a href="/signup" class="text-sm">회원가입 하러가기</a></span>
             </form>
         </div>
@@ -78,7 +88,7 @@
                 $("#password").focus();
                 return;
             }
-            document.login.action = "/login-proc"
+            document.login.action = "/login-proc";
             document.login.submit();
         });
     });

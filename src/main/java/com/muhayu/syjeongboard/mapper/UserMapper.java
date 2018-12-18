@@ -4,15 +4,12 @@ package com.muhayu.syjeongboard.mapper;
 import com.muhayu.syjeongboard.model.User;
 import org.apache.ibatis.annotations.Mapper;
 
-import javax.servlet.http.HttpSession;
-
-
 @Mapper
 public interface UserMapper {
 
-    int userInsert(User user);
+    int insertUser(User user);
 
     User selectUser(String email);
 
-    User checkUser(String email);
+
 }

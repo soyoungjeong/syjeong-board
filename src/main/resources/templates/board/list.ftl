@@ -8,8 +8,7 @@
     <script src="/webjars/jquery/3.3.1/dist/jquery.min.js"></script>
     <script src="/webjars/bootstrap/3.3.4/dist/js/bootstrap.min.js"></script>
     <style>
-        table {margin-top:200px;}
-        .container {width:600px;}
+        .container {margin-top:200px; width:600px;}
         #write {margin-right:10px;}
     </style>
 </head>
@@ -17,6 +16,7 @@
 <#include "../header.ftl">
 <div class="container">
     <form action="/board/check-delete" method="get">
+        <h2><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>내가 쓴 글</h2><br/>
     <table class="table table-hover">
         <thead>
         <tr>
@@ -45,7 +45,6 @@
             alert("정말 삭제하시겠습니까?");
         })
     })
-
 </script>
 </body>
 </html>

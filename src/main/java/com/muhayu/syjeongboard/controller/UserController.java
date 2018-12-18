@@ -4,7 +4,6 @@ import com.muhayu.syjeongboard.exception.UserException;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,14 +37,12 @@ public class UserController {
         user.setPassword(password);
 
         try {
-            userService.checkUser(user.getEmail());
-
-            userService.userInsert(user);
+            userService.insertUser(user);
 
             return "redirect:/login";
         }
         catch(UserException e){
-            model.addAttribute("msg", "이미 존재하는 이메일 입니다.");
+            model.addAttribute("msg", e.getMessage());
             return "/signup";
         }
 
