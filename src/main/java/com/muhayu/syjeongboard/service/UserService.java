@@ -11,7 +11,9 @@ public interface UserService {
 
     User procLogin(String email, String password, HttpSession session) throws UserException;
 
-    User selectUser(String email);
+    User selectUserByEmail(String email);
+
+    User selectUserByNick(String nickname);
 
     boolean checkPassword(User user);
 

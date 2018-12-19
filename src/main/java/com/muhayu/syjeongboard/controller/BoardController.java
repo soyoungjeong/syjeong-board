@@ -1,5 +1,6 @@
 package com.muhayu.syjeongboard.controller;
 
+import com.muhayu.syjeongboard.exception.UserException;
 import com.muhayu.syjeongboard.model.Board;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.BoardService;
@@ -28,25 +29,36 @@ public class BoardController {
 
         try {
             User user = (User) session.getAttribute("user");
-            String writer = user.getNickname();
-
             if(user == null){
-                throw new Exception();
+                throw new UserException("");
             }
 
+            String writer = user.getNickname();
             List<Board> boardList = boardService.boardList(writer);
 
             model.addAttribute("result", boardList);
-
-            return "board/list";
-        }catch (Exception e){
+        }catch (UserException e) {
             model.addAttribute("msg", "로그인이 필요합니다.");
             return "/login";
+        }catch (Exception e) {
+            return "/error";
         }
+        return "board/list";
     }
 
     @RequestMapping(value = "/write")
-    public String write() {
+    public String write(HttpSession session, Model model) {
+        try {
+            User user = (User) session.getAttribute("user");
+            if(user == null){
+                throw new UserException("");
+            }
+        } catch (UserException e){
+            model.addAttribute("msg", "로그인이 필요합니다.");
+            return "/login";
+        }catch (Exception e) {
+            return "/error";
+        }
         return "board/write";
     }
 
@@ -79,7 +91,7 @@ public class BoardController {
     }
 
     @RequestMapping(value = "/update-proc/{index}")
-    public String prcUpdate(@PathVariable int index, HttpServletRequest request){
+    public String procUpdate(@PathVariable int index, HttpServletRequest request){
 
         String title = request.getParameter("title");
         String content = request.getParameter("content");
@@ -101,15 +113,17 @@ public class BoardController {
             User user = (User) session.getAttribute("user");
 
             if(user == null){
-                throw new Exception();
+                throw new UserException("");
             }
 
             Board board = boardService.boardView(index);
             model.addAttribute("detail", board);
 
-        }catch (Exception e){
+        }catch (UserException e){
             model.addAttribute("msg", "로그인이 필요합니다.");
             return "/login";
+        }catch (Exception e){
+            return "/error";
         }
         return "board/view";
     }

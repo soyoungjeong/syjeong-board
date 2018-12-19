@@ -13,6 +13,11 @@
         .signup-box well {display:table-cell; text-align: center;}
         .text-center {position:relative; left:120px;}
         .btn{width:200px; text-align: center; position :relative; left:30px;}
+        .well {background-color: white;}
+        .no-border {border:0; border-bottom:2px solid lightgrey; box-shadow:none; border-radius:0;}
+        input:focus, input[type]:focus{border-color:lightskyblue; box-shadow:none; outline:0 none;}
+        input:-webkit-autofill {-webkit-box-shadow: 0 0 0 30px white inset; -webkit-text-fill-color: black !important;}
+        legend {border:0; text-align:center; font-weight:bold; padding-top:20px; padding-bottom:60px;}
     </style>
 </head>
 <body>
@@ -24,19 +29,19 @@
                     <div class="form-group">
                         <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-envelope"></span></label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="email" name="email" placeholder="Email"><br />
+                            <input type="text" class="form-control no-border" id="email" name="email" placeholder="Email"><br />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-user"></span></label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="nickname" name="nickname" placeholder="Nickname" ><br />
+                            <input type="text" class="form-control no-border" id="nickname" name="nickname" placeholder="Nickname" ><br />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-lock"></span></label>
                         <div class="col-sm-10">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password"><br />
+                            <input type="password" class="form-control no-border" id="password" name="password" placeholder="Password"><br />
                         </div>
                     </div>
                     <div class="btn">

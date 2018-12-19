@@ -4,7 +4,6 @@ import com.muhayu.syjeongboard.mapper.UserMapper;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.UserService;
 import com.muhayu.syjeongboard.exception.UserException;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,10 +22,18 @@ public class UserServiceImpl implements UserService {
 
         try {
             String email = user.getEmail();
-            User signupUser = selectUser(email);
-            if (signupUser != null) {
-                throw new UserException("이미 가입한 회원입니다.");
+            String nickname = user.getNickname();
+
+            User selectUserByEmail = selectUserByEmail(email);
+            if (selectUserByEmail != null) {
+                throw new UserException("이미 가입한 이메일입니다.");
             }
+
+            User selectUserByNick = selectUserByNick(nickname);
+            if (selectUserByNick != null) {
+                throw new UserException("이미 가입한 닉네임입니다.");
+            }
+
 
             String rawPassword = user.getPassword();
             String encodedPassword = new BCryptPasswordEncoder().encode(rawPassword);
@@ -48,7 +55,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(password);
 
         try {
-            User loggedUser = selectUser(email);
+            User loggedUser = selectUserByEmail(email);
             if(loggedUser == null){
                 throw new UserException("아이디 또는 비밀번호가 틀렸습니다.");
             }
@@ -67,12 +74,16 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    public User selectUser(String email){
-        return userMapper.selectUser(email);
+    public User selectUserByEmail(String email){
+        return userMapper.selectUserByEmail(email);
+    }
+
+    public User selectUserByNick(String nickname){
+        return userMapper.selectUserByNick(nickname);
     }
 
     public boolean checkPassword(User user){
-        User loggedUser = userMapper.selectUser(user.getEmail());
+        User loggedUser = userMapper.selectUserByEmail(user.getEmail());
         String encodedPassword = loggedUser.getPassword();
         return passwordEncoder.matches(user.getPassword(), encodedPassword);
     }

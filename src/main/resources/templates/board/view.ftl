@@ -27,12 +27,12 @@
         </tr>
         <tr>
             <th class="info" width="100px">작성자</th>
-            <td width="200px"></td>
+            <td width="200px">${detail.writer}</td>
             <th class="info" width="100px">작성일</th>
             <td calss="date" width="200px">${detail.date}</td>
         </tr>
         <tr>
-            <td colspan="4" height="400px">${detail.content}</td>
+            <td class="text-center" colspan="4" height="400px">${detail.content}</td>
         </tr>
 
     </table>

@@ -11,7 +11,11 @@
         values (#{email}, #{nickname}, #{password})
     </insert>
 
-    <select id="selectUser" resultType="User">
+    <select id="selectUserByEmail" resultType="User">
         select * from user where email = #{email};
+    </select>
+
+    <select id="selectUserByNick" resultType="User">
+        select * from user where nickname = #{nickname};
     </select>
 </mapper>

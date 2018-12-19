@@ -54,7 +54,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login-proc")
-    public String loginProc(HttpServletRequest request, HttpSession session, Model model) {
+    public String procLogin(HttpServletRequest request, HttpSession session, Model model) {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
@@ -64,10 +64,10 @@ public class UserController {
             User user = userService.procLogin(email, password, session);
 
             if(user == null){
-                throw new UserException(" ");
+                throw new Exception();
             }
         }
-        catch (UserException e){
+        catch (Exception e){
             model.addAttribute("msg", e.getMessage());
             return "/login";
         }
