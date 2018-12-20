@@ -28,19 +28,19 @@
                     <legend>회원가입</legend>
                     <div class="form-group">
                         <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-envelope"></span></label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control no-border" id="email" name="email" placeholder="Email"><br />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-user"></span></label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <input type="text" class="form-control no-border" id="nickname" name="nickname" placeholder="Nickname" ><br />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-1 col-xs-offset-1 control-label"><span class="glyphicon glyphicon-lock"></span></label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <input type="password" class="form-control no-border" id="password" name="password" placeholder="Password"><br />
                         </div>
                     </div>
