@@ -4,9 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WelcomController {
+public class WelcomeController {
     @RequestMapping(value="/")
-    public String welcom() {
+    public String welcome() {
         return "testpage/main";
     }
 }

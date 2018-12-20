@@ -4,6 +4,7 @@ import com.muhayu.syjeongboard.exception.UserException;
 import com.muhayu.syjeongboard.model.Board;
 import com.muhayu.syjeongboard.model.User;
 import com.muhayu.syjeongboard.service.BoardService;
+import com.muhayu.syjeongboard.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,51 +20,49 @@ import java.util.List;
 
 @Controller
 @RequestMapping(value = "/board")
-public class BoardController {
+public class BoardController{
 
     @Autowired
     private BoardService boardService;
 
+    @Autowired
+    private UserService userService;
+
+
     @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(Model model, HttpSession session) {
-
-        try {
-            User user = (User) session.getAttribute("user");
-            if(user == null){
-                throw new UserException("");
-            }
+        try{
+            User user = userService.checkLogin(session);
 
             String writer = user.getNickname();
             List<Board> boardList = boardService.boardList(writer);
 
             model.addAttribute("result", boardList);
+
         }catch (UserException e) {
-            model.addAttribute("msg", "로그인이 필요합니다.");
+            model.addAttribute("msg", e.getMessage());
             return "/login";
-        }catch (Exception e) {
-            return "/error";
         }
+
         return "board/list";
     }
+
+
 
     @RequestMapping(value = "/write")
     public String write(HttpSession session, Model model) {
         try {
-            User user = (User) session.getAttribute("user");
-            if(user == null){
-                throw new UserException("");
-            }
+            userService.checkLogin(session);
+
         } catch (UserException e){
-            model.addAttribute("msg", "로그인이 필요합니다.");
+            model.addAttribute("msg", e.getMessage());
             return "/login";
-        }catch (Exception e) {
-            return "/error";
         }
         return "board/write";
     }
 
     @RequestMapping(value = "/write-proc")
-    public String procWrite(HttpServletRequest request, HttpSession session) {
+    public String writeProc(HttpServletRequest request, HttpSession session) {
 
         User user = (User) session.getAttribute("user");
         String title = request.getParameter("title");
@@ -91,7 +90,7 @@ public class BoardController {
     }
 
     @RequestMapping(value = "/update-proc/{index}")
-    public String procUpdate(@PathVariable int index, HttpServletRequest request){
+    public String updateProc(@PathVariable int index, HttpServletRequest request){
 
         String title = request.getParameter("title");
         String content = request.getParameter("content");
@@ -110,17 +109,13 @@ public class BoardController {
     public String view(@PathVariable int index, Model model, HttpSession session) {
 
         try {
-            User user = (User) session.getAttribute("user");
-
-            if(user == null){
-                throw new UserException("");
-            }
+            userService.checkLogin(session);
 
             Board board = boardService.boardView(index);
             model.addAttribute("detail", board);
 
         }catch (UserException e){
-            model.addAttribute("msg", "로그인이 필요합니다.");
+            model.addAttribute("msg", e.getMessage());
             return "/login";
         }catch (Exception e){
             return "/error";

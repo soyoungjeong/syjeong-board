@@ -25,7 +25,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signup-proc")
-    public String procSignup(HttpServletRequest request, Model model){
+    public String singupPorc(HttpServletRequest request, Model model){
 
         String email = request.getParameter("email");
         String nickname = request.getParameter("nickname");
@@ -54,7 +54,7 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login-proc")
-    public String procLogin(HttpServletRequest request, HttpSession session, Model model) {
+    public String loginPorc(HttpServletRequest request, HttpSession session, Model model) {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");

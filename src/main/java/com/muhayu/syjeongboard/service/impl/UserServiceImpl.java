@@ -92,5 +92,18 @@ public class UserServiceImpl implements UserService {
         session.invalidate();
     }
 
+    @Override
+    public User checkLogin(HttpSession session) throws UserException{
+        try {
+            User user = (User) session.getAttribute("user");
+            if (user == null) {
+                throw new UserException("로그인이 필요합니다.");
+            }
+            return user;
+        } catch (UserException e) {
+            throw e;
+        }
+    }
+
 }
 
