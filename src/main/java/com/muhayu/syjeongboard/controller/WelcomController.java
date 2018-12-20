@@ -1,13 +1,12 @@
-package com.muhayu.syjeongboard;
+package com.muhayu.syjeongboard.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class WebController {
+public class WelcomController {
     @RequestMapping(value="/")
-    public String main() {
-        return "main";
+    public String welcom() {
+        return "testpage/main";
     }
-
 }

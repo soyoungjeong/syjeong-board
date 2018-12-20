@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.muhayu.syjeongboard.mapper.UserMapper">
+
+
+    <insert id="insertUser" parameterType="User">
+        insert into user('email', 'nickname', 'password')
+        values (#{email}, #{nickname}, #{password})
+    </insert>
+
+    <select id="selectUserByEmail" resultType="User">
+        select * from user where email = #{email};
+    </select>
+
+    <select id="selectUserByNick" resultType="User">
+        select * from user where nickname = #{nickname};
+    </select>
+</mapper>

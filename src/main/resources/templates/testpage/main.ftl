@@ -33,6 +33,7 @@
     <script type="text/javascript" src="js/copykiller_common.js"></script>
     <script type="text/javascript" src="js/copykiller.js"></script>
     <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
     <script type="text/javascript" src="js/content_widget.js"></script>
     <script type="text/javascript" src="js/pop_up.js"></script>
     <!--[if lt IE 9]><script src="/common/js/html5.js"></script><![endif]-->
@@ -65,6 +66,13 @@
 
 
     </script>
+
+
+
+
+
+
+
 
     <meta name="description" content="표절검사의 기준! 무료표절검사, 논문표절, 자소서표절, 레포트표절 검사 서비스와 글쓰기 핵심도구를 제공합니다.">
     <meta property="og:type" content="website">
