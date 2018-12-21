@@ -4,25 +4,24 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.muhayu.syjeongboard.mapper.BoardMapper">
-
-    <select id="boardList" resultType="Board">
+    <select id="selectBoardList" resultType="Board">
         SELECT * FROM board where writer = #{writer}
     </select>
 
-    <insert id="boardInsert" parameterType="Board">
+    <insert id="insertBoard" parameterType="Board">
         insert into board('title', 'content', 'date', 'writer')
         values (#{title}, #{content}, CURRENT_DATE, #{writer})
     </insert>
 
-    <select id="boardView" parameterType="int" resultType="Board">
+    <select id="selectBoard" parameterType="int" resultType="Board">
         select * from board where "index" = #{index}
     </select>
 
-    <delete id="boardDelete" parameterType="Board">
+    <delete id="deleteBoard" parameterType="Board">
         delete from board where "index" = #{index}
     </delete>
 
-    <update id="boardUpdate" parameterType="Board">
+    <update id="updateBoard" parameterType="Board">
         update board set title = #{title} , content = #{content} where "index" = #{index}
     </update>
 </mapper>

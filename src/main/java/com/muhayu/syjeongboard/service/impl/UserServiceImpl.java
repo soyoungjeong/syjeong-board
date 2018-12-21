@@ -48,11 +48,7 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public User procLogin(String email, String password, HttpSession session) throws UserException {
-
-        User user = new User();
-        user.setEmail(email);
-        user.setPassword(password);
+    public User procLogin(HttpSession session, String email, String password) throws UserException {
 
         try {
             User loggedUser = selectUserByEmail(email);
@@ -60,8 +56,8 @@ public class UserServiceImpl implements UserService {
                 throw new UserException("아이디 또는 비밀번호가 틀렸습니다.");
             }
 
-            boolean result = checkPassword(user);
-            if (!result) {
+            User user = new User(email, password);
+            if(!isUserPasswordMatch(user)){
                 throw new UserException("아이디 또는 비밀번호가 틀렸습니다.");
             }
 
@@ -82,7 +78,7 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectUserByNick(nickname);
     }
 
-    public boolean checkPassword(User user){
+    public boolean isUserPasswordMatch(User user){
         User loggedUser = userMapper.selectUserByEmail(user.getEmail());
         String encodedPassword = loggedUser.getPassword();
         return passwordEncoder.matches(user.getPassword(), encodedPassword);
@@ -93,16 +89,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User checkLogin(HttpSession session) throws UserException{
-        try {
-            User user = (User) session.getAttribute("user");
-            if (user == null) {
-                throw new UserException("로그인이 필요합니다.");
-            }
-            return user;
-        } catch (UserException e) {
-            throw e;
+    public User getLoginUser(HttpSession session) throws UserException{
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            throw new UserException("로그인이 필요합니다.");
         }
+        return user;
+
     }
 
 }

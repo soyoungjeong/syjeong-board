@@ -2,21 +2,23 @@ package com.muhayu.syjeongboard.mapper;
 
 import com.muhayu.syjeongboard.model.Board;
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Mapper
+@Component
 public interface BoardMapper {
 
-    List<Board> boardList(String nickName);
+    List<Board> selectBoardList(String nickName);
 
-    int boardInsert(Board board);
+    int insertBoard(Board board);
 
-    Board boardView(int index);
+    Board selectBoard(int index);
 
-    int boardDelete(int index);
+    int deleteBoard(int index);
 
-    int boardUpdate(Board board);
+    int updateBoard(Board board);
 }
 
 

@@ -25,13 +25,13 @@ public class UserController {
     }
 
     @RequestMapping(value = "/signup-proc")
-    public String singupPorc(HttpServletRequest request, Model model){
+    public String singupProc(HttpServletRequest request, Model model){
 
         String email = request.getParameter("email");
         String nickname = request.getParameter("nickname");
         String password = request.getParameter("password");
 
-        User user = new User();
+        User user = new User(email, password);
         user.setEmail(email);
         user.setNickname(nickname);
         user.setPassword(password);
@@ -44,6 +44,8 @@ public class UserController {
         catch(UserException e){
             model.addAttribute("msg", e.getMessage());
             return "/signup";
+        }catch (Exception e) {
+            return "/error";
         }
 
     }
@@ -54,14 +56,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/login-proc")
-    public String loginPorc(HttpServletRequest request, HttpSession session, Model model) {
+    public String loginProc(HttpServletRequest request, HttpSession session, Model model) {
 
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
 
         try{
-            User user = userService.procLogin(email, password, session);
+            User user = userService.procLogin(session, email, password);
 
             if(user == null){
                 throw new Exception();

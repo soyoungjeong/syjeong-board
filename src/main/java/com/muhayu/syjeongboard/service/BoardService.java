@@ -6,13 +6,13 @@ import java.util.List;
 
 public interface BoardService {
 
-    List<Board> boardList(String nickName);
+    List<Board> selectBoardList(String nickName);
 
-    int boardInsert(Board board);
+    int insertBoard(Board board);
 
-    Board boardView(int index);
+    Board selectBoard(int index);
 
-    int boardDelete(int index);
+    int deleteBoard(int index);
 
-    int boardUpdate(Board board);
+    int updateBoard(Board board);
 }

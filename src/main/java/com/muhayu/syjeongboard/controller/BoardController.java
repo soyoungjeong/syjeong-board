@@ -30,18 +30,20 @@ public class BoardController{
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(Model model, HttpSession session) {
+    public String list(HttpSession session, Model model) {
         try{
-            User user = userService.checkLogin(session);
+            User user = userService.getLoginUser(session);
 
             String writer = user.getNickname();
-            List<Board> boardList = boardService.boardList(writer);
+            List<Board> boardList = boardService.selectBoardList(writer);
 
             model.addAttribute("result", boardList);
 
         }catch (UserException e) {
             model.addAttribute("msg", e.getMessage());
             return "/login";
+        }catch (Exception e) {
+            return "/error";
         }
 
         return "board/list";
@@ -52,11 +54,13 @@ public class BoardController{
     @RequestMapping(value = "/write")
     public String write(HttpSession session, Model model) {
         try {
-            userService.checkLogin(session);
+            userService.getLoginUser(session);
 
         } catch (UserException e){
             model.addAttribute("msg", e.getMessage());
             return "/login";
+        }catch (Exception e) {
+            return "/error";
         }
         return "board/write";
     }
@@ -70,12 +74,10 @@ public class BoardController{
         String nickname = user.getNickname();
 
 
-        Board board = new Board();
-        board.setTitle(title);
-        board.setContent(content);
+        Board board = new Board(title, content);
         board.setWriter(nickname);
 
-        boardService.boardInsert(board);
+        boardService.insertBoard(board);
 
         return "redirect:/board/list";
     }
@@ -83,7 +85,7 @@ public class BoardController{
     @RequestMapping(value = "/update/{index}")
     public String update(@PathVariable int index, Model model) {
 
-        Board board = boardService.boardView(index);
+        Board board = boardService.selectBoard(index);
         model.addAttribute("detail", board);
 
         return "board/update";
@@ -95,12 +97,10 @@ public class BoardController{
         String title = request.getParameter("title");
         String content = request.getParameter("content");
 
-        Board board = new Board();
-        board.setTitle(title);
-        board.setContent(content);
+        Board board = new Board(title, content);
         board.setIndex(index);
 
-        boardService.boardUpdate(board);
+        boardService.updateBoard(board);
 
         return "redirect:/board/list";
     }
@@ -109,9 +109,9 @@ public class BoardController{
     public String view(@PathVariable int index, Model model, HttpSession session) {
 
         try {
-            userService.checkLogin(session);
+            userService.getLoginUser(session);
 
-            Board board = boardService.boardView(index);
+            Board board = boardService.selectBoard(index);
             model.addAttribute("detail", board);
 
         }catch (UserException e){
@@ -126,7 +126,7 @@ public class BoardController{
     @RequestMapping(value = "/delete/{index}")
     public String delete(@PathVariable int index){
 
-        boardService.boardDelete(index);
+        boardService.deleteBoard(index);
         return "redirect:/board/list";
     }
 
@@ -134,7 +134,7 @@ public class BoardController{
     public String checkDelete(@RequestParam(value = "check") List<Integer> check){
 
         for(int index : check) {
-            boardService.boardDelete(index);
+            boardService.deleteBoard(index);
         }
 
         return "redirect:/board/list";

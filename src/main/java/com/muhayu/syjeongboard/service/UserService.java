@@ -10,15 +10,15 @@ public interface UserService {
 
     int insertUser(User user) throws UserException;
 
-    User procLogin(String email, String password, HttpSession session) throws UserException;
+    User procLogin(HttpSession session, String email, String password) throws UserException;
+
+    User getLoginUser(HttpSession session) throws UserException;
 
     User selectUserByEmail(String email);
 
     User selectUserByNick(String nickname);
 
-    User checkLogin(HttpSession session) throws UserException;
-
-    boolean checkPassword(User user);
+    boolean isUserPasswordMatch(User user);
 
     void logout(HttpSession session);
 
